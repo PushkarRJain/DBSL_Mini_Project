@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View All</title>
+</head>
+<body>
+  <h1>All Orders</h1>
+  <% arr.forEach(function(item){ %>
+    <p> ₹<%=item.Total_Price %></p>
+    <%for (var key in JSON.parse(item.Items)){ %>
+      <% arr_data.forEach(function(val){ %> 
+        <% if(val.Item_ID === key){ %>
+          <p> <%= val.Item_Name %> <%= JSON.parse(item.Items)[key] %></p>
+          <%}})%> 
+    <%}%>
+    <%})%>
+</body>
+</html>

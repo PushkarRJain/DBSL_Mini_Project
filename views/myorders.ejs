@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders</title>
+</head>
+<body>
+  <h1>Orders</h1>
+  <%if(flag==1){ %>
+    <% console.log("items",typeof Item_ID) %>
+    <%for (var key in JSON.parse(Items)){ %>
+      <% console.log("hello",Item_Name[Item_ID.indexOf(key)])%>
+      <p> <%= Item_Name[Item_ID.indexOf(key)] %> <%= JSON.parse(Items)[key] %> </p>
+      <%}%>
+      <p> ₹<%= Price %></p>
+      <%}else{%>
+        <p>Empty Cart</p>
+        <%} %>
+</body>
+</html>

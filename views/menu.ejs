@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+  <h1>Menu page</h1>
+  <a href="/cart">View Cart</a>
+  <a href="/view">My Orders</a>
+  <% res_arr.forEach(function(item){ %>
+    <p><%= "car"+item.Item_Name %> ₹<%=item.Price %>
+       <form action = <%= '/menu/add/'+item.Item_ID %> method="post">
+      <button >+</button>
+  </form>
+  <%=item.Stock %><form action = <%= '/menu/subtract/'+item.Item_ID %> method="post">
+    <button >-</button>
+</form></p>
+    <%})%>
+</body>
+</html>
