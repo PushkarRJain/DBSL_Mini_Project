@@ -1,67 +1,122 @@
 
-    * {
-        margin: 0;
+    @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100, 300, 400, 500, 600, 700, 800, 900&display=swap');
+ 
+    /* font-family: 'Big Shoulders Text', cursive; */
+     
+    .nav-flex-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        width: 100%;
         padding: 0;
     }
-    .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: sticky;
-        top: 0;
-        cursor: pointer;
-    }
- 
-    .background {
-        background: white;
-        background-blend-mode: darken;
-        background-size: cover;
-    }
-    .nav-list {
-        width: 70%;
-        display: flex;
-        align-items: center;
-    }
-    .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
- 
-    .logo img {
-        width: 180px;
      
-        border-radius: 50px;
+    .nav-flex-row li {
+        text-decoration: none;
+        list-style-type: none;
+        padding: 20px 15px;
     }
- 
-    .nav-list li {
-        list-style: none;
-        padding: 26px 30px;
+     
+    .nav-flex-row li a {
+        font-family: 'Big Shoulders Text', cursive;
+        color: #000;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: 300;
     }
-    .text-footer {
-        text-align: center;
-        padding: 30px 0;
-        font-family: 'Ubuntu', sans-serif;
-        display: flex;
-        justify-content: center;
-        color: black;
+    .nav-flex-row li a:hover{
+        background: #E7E7E7;
     }
-    .firstsection {
-        background-color:lightblue;
-        height: 400px;
-    }
-    .box-main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black;
-        max-width: 80%;
-        margin: auto;
-        height: 80%;
-    }
-    .firsthalf {
-        width: 100%;
+     
+    .section-intro {
+        height: 820px;
+        background-image:"./images/canteen.jpeg";
+        background-size: cover;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
+     
+    .section-intro h1 {
+        text-align: center;
+        color: #000;
+        font-size: 4em;
+        font-weight: 700;
+    }
+     
+    .section-intro header {
+        display: flex;
+        flex: 4;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+     
+    .link-to-book-wrapper {
+        flex: 1;
+    }
+     
+    .about-section {
+        display: flex;
+        align-items: center;
+        background-color: #f3f3f3c0;
+        padding: 50px 30px;
+    }
+     
+    .link-to-book {
+        color: #ffffff;
+        display: block;
+        border: 2px solid #ffffff;
+        padding: 5px 10px;
+    }
+     
+    a.link-to-book:hover {
+        background-color: #ffffff;
+        color: #95999e;
+        text-decoration: none;
+    }
+     
+    .about-section p,
+    .about-section h3 {
+        text-align: center;
+        width: 60%;
+        margin: auto;
+        font-family: 'Big Shoulders Text', cursive;
+        font-size: 1.8em;
+        text-transform: uppercase;
+    }
+     
+    .carousel-inner {
+        height: 700px;
+    }
+     
+    .row-flex {
+        display: flex;
+        flex-direction: row;
+    }
+     
+    .flex-column-form {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin: 30px 20px;
+    }
+     
+    .btn.btn-primary {
+        font-family: 'Big Shoulders Text', cursive;
+        color: #ffffff;
+        background-color: #95999e;
+        text-transform: uppercase;
+        font-size: 16px;
+        padding: 5px 10px;
+        letter-spacing: 2px;
+        border: 0;
+    }
+     
+    
+     
+    
