@@ -169,4 +169,12 @@ body{
     outline:10 px solid #d3325f;
     outline-offset: -1.8 rem;
 }
+.login{
+    font-weight:bold;
+    font-size:30px
+}
+.register{
+    font-weight:bold;
+    font-size:30px
+}
 
