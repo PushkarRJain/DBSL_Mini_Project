@@ -12,6 +12,7 @@ app.use(
   })
 );
 global.data = "";
+global.roll = "";
 const conn = mysql.createConnection({
   host: process.env.HOST,
   user: process.env.USER,
@@ -23,19 +24,12 @@ conn.connect((err) => {
   if (err) throw err;
   console.log("Mysql Connected...");
 });
-// app.get("/", (req, res) => {
-//   let sql = "show tables";
-//   conn.query(sql, (err, results) => {
-//     if (err) throw err;
-//     res.send(JSON.stringify({ response: results }));
-//   });
-// });
 
-//get request for home page
+//get request for home page - USER, ADMIN
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/home.html");
 });
-//get request for registration form
+//get request for registration form - USER, ADMIN
 app.get("/signup", (req, res) => {
   res.sendFile(__dirname + "/signup.html"); //add forms
 });
@@ -43,7 +37,7 @@ app.get("/signup", (req, res) => {
 app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/login.html"); //add forms
 });
-//post request for registration
+//post request for registration - USER, ADMIN
 app.post("/signup", (req, res) => {
   const id = req.body.PICT_Reg_ID;
   const gender = req.body.Gender;
@@ -53,6 +47,7 @@ app.post("/signup", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const role = req.body.role;
+  roll = req.body.role;
   const sqlInsert = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?)";
   conn.query(
     sqlInsert,
@@ -66,7 +61,7 @@ app.post("/signup", (req, res) => {
     }
   );
 });
-//post request for login
+//post request for login - USER, ADMIN
 app.post("/login", (req, res) => {
   const sqlQuery = "Select * from user where Username=(?) and Password = (?)";
   conn.query(
@@ -77,15 +72,19 @@ app.post("/login", (req, res) => {
         console.log(err);
       }
       data = results[0].PICT_Reg_ID;
-      console.log(data);
+      roll = results[0].Role;
+      console.log(data, roll);
       if (results[0].username !== null) {
         res.redirect("/menu");
       }
     }
   );
 });
-//get request for menu page
+//get request for menu page - USER, ADMIN
 app.get("/menu", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
   let sql = "select * from menu";
   var res_arr;
   conn.query(sql, (err, results) => {
@@ -94,8 +93,11 @@ app.get("/menu", (req, res) => {
     res.render("menu", { res_arr: res_arr });
   });
 });
-//post request for add item
+//post request for add item - USER, ADMIN
 app.post("/menu/add/:id", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
   console.log("val", data);
   //get item id from req.body
   const item_id = req.params.id;
@@ -108,6 +110,9 @@ app.post("/menu/add/:id", (req, res) => {
     var price = obj.Price;
     var stock = obj.Stock;
     stock = Number(stock) - 1;
+    if (Number(stock) < 0) {
+      res.redirect("/menu");
+    }
     conn.query(
       "update menu set stock = (?) where Item_ID= (?)",
       [stock, item_id],
@@ -162,7 +167,11 @@ app.post("/menu/add/:id", (req, res) => {
     );
   });
 });
+//post request to subtract item - USER, ADMIN
 app.post("/menu/subtract/:id", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
   console.log("val", data);
   //get item id from req.body
   const item_id = req.params.id;
@@ -214,8 +223,11 @@ app.post("/menu/subtract/:id", (req, res) => {
     );
   });
 });
-//get request for view cart
+//get request for view cart - USER, ADMIN
 app.get("/cart", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
   let sql = "select * from cart where Customer_ID=(?)";
   conn.query(sql, [data], (err, results) => {
     if (err) throw err;
@@ -260,8 +272,11 @@ app.get("/cart", (req, res) => {
     }
   });
 });
-//get request for view order
+//get request for view order - USER, ADMIN
 app.get("/view", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
   let sql = "select * from cart where Customer_ID=(?)";
   conn.query(sql, [data], (err, results) => {
     if (err) throw err;
@@ -306,10 +321,24 @@ app.get("/view", (req, res) => {
     }
   });
 });
+//Admin home page - ADMIN
 app.get("/admin", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
+  if (roll === "user") {
+    res.redirect("/menu");
+  }
   res.sendFile(__dirname + "/admin.html");
 });
+//See all placed orders - ADMIN
 app.get("/allorders", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
+  if (roll === "user") {
+    res.redirect("/menu");
+  }
   conn.query("select * from cart", (err, results) => {
     var arr = JSON.parse(JSON.stringify(results));
     var item_id = [];
@@ -320,10 +349,27 @@ app.get("/allorders", (req, res) => {
     });
   });
 });
-// app.get("/update", (req, res) => {
-//   res.render("update");
-// });
-// app.post("/",(req,res))
+//Add item in menu - ADMIN
+app.post("/additem", (req, res) => {
+  if (data === "") {
+    res.redirect("/login");
+  }
+  if (roll === "user") {
+    res.redirect("/menu");
+  }
+  const Item_id = req.body.item_id;
+  const Price = req.body.Price;
+  const Item_Name = req.body.Item_Name;
+
+  const sqlInsert = "INSERT INTO menu VALUES (?,?,?)";
+  conn.query(sqlInsert, [Item_id, Price, role, Item_Name], (err, results) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("added");
+    res.redirect("/admin");
+  });
+});
 app.listen(process.env.PORT, () => {
   console.log("Server up and running ");
 });
