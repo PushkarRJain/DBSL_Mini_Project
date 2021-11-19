@@ -1,34 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
-  <!--Bootstrap css file-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--Font awesome icons-->
-    <link rel="stylesheet" href="css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Project</title>
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--Main css-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
 
-    <!-- custom css file-->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Font Awesome js-->
+    <script src="js/fontawesome.min.js"></script>
+    <!--Google fonts---------------------------------------------------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+<!--Magnific popup-->
+<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
 </head>
 <body>
-  <h1>Home page</h1>
-  <a href = "/login"> Login </a>
-  <a href = "/signup"> Register </a>
+    <!--Nesting of class with emmets.  .container>.row>.col-->
+   <!--Social icons-->
+    <div class="container-fluid info p-3" id="top-icons">
+        <div class="row">
+            <div class="col d-flex justify-content-between align-items-baseline flex-wrap">
+                <div class="info-icons p-2">
+                    <a href="" class="mr-2 primary-color"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+
+                    </i></a>
+                    <a href="" class="mr-2 primary-color"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                        
+                    </i></a>
+                    <a href="" class="mr-2 primary-color"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                        
+                    </i></a>
+                    <a href="" class="mr-2 primary-color"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
+                        
+                    </i></a>
+                </i></a>
+                    <a href="" class="mr-2 primary-color"><i class="fa fa-yelp fa-2x" aria-hidden="true"></i>
+                    
+                </i></a>
+                </div>
+                <a href="./login" class="login">Login</a>
+                <a href="./signup" class="register">Register</a>
+            </div>
+        </div>
+    </div>
+    <!--End of social icons-->
+    <!--Header Section-->
+    <header class="id">
+        <div class="contaier">
+            <div class="row height-90 align-items-center justify-content-center">
+                <div class="col">
+                    <div class="banner text-center">
+                        <h1 class="display-1 text-capitalize w-50 mx-auto">
+                            <small>PICT Canteen</small><strong class="primary-color">Portal</strong>
+                        </h1>
+                        <a href="" class="btn main-btn sushi-btn my-4 text-capitalize">order online</a>  <!--a.btn.main-btn.my-4.text-capitalize-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#special-items" class="btn header-link primary-color"><i class="fa fa-arrow-down fa-2x" aria-hidden="true"></i></a>
+        <!-- <img  class="banner"src="./images/seafood.jpg" alt="Seafood background">
+         <img  class="banner background"src="./images/fish-background.jpg" alt="Seafood background">
+       -->
+       
+      
+
+    </header>
 
 
 
+    <!--End Header Section-->
+    <!--Navbar-->
+    <!--Menu Items-->
+        <section class="py-5" id="special-items">
+            <div class="container my-5">
+                <div class="row parent-container">
+                    <!--Menu Items-->
+                    <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3"> <!--Becomes smaller and fits to screen size in extra small screen.-->
+                        <div class="item-container">
+                            <img src="images/prawns.jpg" class="img-fluid img-thumbnail item-img" alt="prawns">
+                            <a href="images/prawns.jpg">
+                            <h1 class="text-uppercase text-center item-link px-3">menu item-1</h1>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3"> <!--Becomes smaller and fits to screen size in extra small screen.-->
+                        <div class="item-container">
+                            <img src="images/momos.jpg" class="img-fluid img-thumbnail item-img" alt="prawns">
+                            <a href="images/momos.jpg">
+                            <h1 class="text-uppercase text-center item-link px-3">Menu item-2</h1>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3"> <!--Becomes smaller and fits to screen size in extra small screen.-->
+                        <div class="item-container">
+                            <img src="images/crab.jpg" class="img-fluid img-thumbnail item-img" alt="crab">
+                            <a href="images/crab.jpg">
+                            <h1 class="text-uppercase text-center item-link px-3">Menu item-3</h1>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3"> <!--Becomes smaller and fits to screen size in extra small screen.-->
+                        <div class="item-container">
+                            <img src="images/lobster.jpg" class="img-fluid img-thumbnail item-img" alt="lobster">
+                            <a href="images/lobster.jpg">
+                            <h1 class="text-uppercase text-center item-link px-3">Menu item-4</h1>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3"> <!--Becomes smaller and fits to screen size in extra small screen.-->
+                        <div class="item-container">
+                            <img src="images/chicken-burger.jpg" class="img-fluid img-thumbnail item-img" alt="chicken-burger">
+                            <a href="images/chicken-burger.jpg">
+                            <h1 class="text-uppercase text-center item-link px-3">Menu item-5</h1>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-10 mx-auto col-sm-6 col-lg-4 my-3"> <!--Becomes smaller and fits to screen size in extra small screen.-->
+                        <div class="item-container">
+                            <img src="images/chicken-wings.jpg" class="img-fluid img-thumbnail item-img" alt="chicken-burger">
+                            <a href="images/chicken-wings.jpg">
+                            <h1 class="text-uppercase text-center item-link px-3">Menu item-6</h1>
+                        </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    <!--End of Menu Items-->
+    <!--Menu Section-->
+   
 
 
 
+                </div>
+                <!--end of first column-->
+                
+        </div>
+    </section>
+
+    <!--End Menu Section-->
 
 
+    <!--End of Navbar-->
+    
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--jquery -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!--Bootstrap js-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!--ripple-->
+    <script src="js/jquery.ripples-min.js"></script>
+    <!--Magnific popup-->
+    <script src="magnific-popup/jquery.magnific-popup.js"></script>
+    <!--js linking-->
+    <script src="js/script.js"></script>
+
 </body>
 </html>
