@@ -26,37 +26,37 @@
             </div>
             <div class="col-md-8 py-5 border">
                 <h4 class="pb-4">Please fill with your details</h4>
-                <form>
+                <form action="/signup" method="POST">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                          <input id="Full Name" name="Full Name" placeholder="Full Name" class="form-control" type="text">
+                          <input name='Name' type="text" required autocomplete="off"/>
                         </div>
                         <div class="form-group col-md-6">
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                          <input name="email" type="email"required autocomplete="off"/>
                         </div>
                       </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                          <input id="PICT_Reg_ID" name="pict_reg_id" placeholder="PICT_Reg_ID" class="form-control" type="text">
+                          <input id="PICT_Reg_ID" name="PICT_Reg_ID"  placeholder="PICT_Reg_ID" class="form-control" type="text">
                         </div>
                         <div class="form-group col-md-6">
-                          <input type="Username" class="form-control" id="inputEmail4" placeholder="Username">
+                          <input type="Username" name='username' class="form-control" id="inputEmail4" placeholder="Username">
                         </div>
                       </div>
                      <div class="form-row">
                         <div class="form-group col-md-6">
-                          <input id="Password" name="password" placeholder="password" class="form-control" type="text">
+                          <input id="Password" name="password"placeholder="password" class="form-control" type="text">
                         </div>
                         <div class="form-group col-md-6">
-                          <input type="Gender" class="form-control" id="gender" placeholder="Gender">
+                          <input name='Gender' type="Gender" class="form-control" id="gender" placeholder="Gender">
                         </div>
                       </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="Mobile No." name="Mobile No." placeholder="Mobile No." class="form-control" required="required" type="text">
+                            <input id="Mobile No." name="Contact" placeholder="Mobile No." class="form-control" required="required" type="text">
                         </div>
                         <div class="form-group col-md-6">
-                                 <input type="role" class="form-control" id="role" placeholder="Role">   
+                                 <input type="role" name='role'  class="form-control" id="role" placeholder="Role">   
                                  
                         </div>
                         <!--<div class="form-group col-md-12">
@@ -78,7 +78,7 @@
                     </div>
                     
                     <div class="form-row">
-                        <button type="button" class="btn btn-danger">Submit</button>
+                        <button type="submit" class="btn btn-danger">Submit</button>
                     </div>
                 </form>
             </div>

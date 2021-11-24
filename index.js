@@ -39,6 +39,7 @@ app.get("/login", (req, res) => {
 });
 //post request for registration - USER, ADMIN
 app.post("/signup", (req, res) => {
+  console.log("yes");
   const id = req.body.PICT_Reg_ID;
   const gender = req.body.Gender;
   const name = req.body.Name;
@@ -48,16 +49,24 @@ app.post("/signup", (req, res) => {
   const password = req.body.password;
   const role = req.body.role;
   roll = req.body.role;
+
   const sqlInsert = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?)";
   conn.query(
     sqlInsert,
     [id, gender, role, name, username, password, email, contact],
     (err, results) => {
       if (err) {
+        res.redirect("/login");
         console.log(err);
       }
+      data = req.body.PICT_Reg_ID;
       console.log("added");
       res.redirect("/menu");
+      if (roll === "user") {
+        res.redirect("/menu");
+      } else {
+        res.redirect("/admin");
+      }
     }
   );
 });
@@ -70,12 +79,15 @@ app.post("/login", (req, res) => {
     (err, results) => {
       if (err) {
         console.log(err);
+        res.redirect("/signup");
       }
       data = results[0].PICT_Reg_ID;
       roll = results[0].Role;
       console.log(data, roll);
-      if (results[0].username !== null) {
+      if (roll === "user") {
         res.redirect("/menu");
+      } else {
+        res.redirect("/admin");
       }
     }
   );
