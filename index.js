@@ -58,14 +58,16 @@ app.post("/signup", (req, res) => {
       if (err) {
         res.redirect("/login");
         console.log(err);
-      }
-      data = req.body.PICT_Reg_ID;
-      console.log("added");
-      res.redirect("/menu");
-      if (roll === "user") {
-        res.redirect("/menu");
       } else {
-        res.redirect("/admin");
+        data = req.body.PICT_Reg_ID;
+        roll = req.body.role;
+        console.log(roll);
+        console.log("added");
+        if (roll.trim() === "user".trim()) {
+          res.redirect("/menu");
+        } else {
+          res.redirect("/admin");
+        }
       }
     }
   );
@@ -80,14 +82,15 @@ app.post("/login", (req, res) => {
       if (err) {
         console.log(err);
         res.redirect("/signup");
-      }
-      data = results[0].PICT_Reg_ID;
-      roll = results[0].Role;
-      console.log(data, roll);
-      if (roll === "user") {
-        res.redirect("/menu");
       } else {
-        res.redirect("/admin");
+        data = results[0].PICT_Reg_ID;
+        roll = results[0].Role;
+        console.log(data, roll);
+        if (roll === "user") {
+          res.redirect("/menu");
+        } else {
+          res.redirect("/admin");
+        }
       }
     }
   );

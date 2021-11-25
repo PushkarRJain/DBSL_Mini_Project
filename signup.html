@@ -1,91 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <section class="testimonial py-5" id="testimonial">
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-4 py-5 bg-primary text-white text-center ">
-                <div class=" ">
-                    <div class="card-body">
-                        <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
-                        <h2 class="py-3">Registration</h2>
-                        <p>This is the registeration form</p>
-
-
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 py-5 bg-primary text-white text-center">
+            <div class="">
+              <div class="card-body">
+                <img
+                  src="http://www.ansonika.com/mavia/img/registration_bg.svg"
+                  style="width: 30%"
+                />
+                <h2 class="py-3">Registration</h2>
+                <p>This is the registeration form</p>
+              </div>
             </div>
-            <div class="col-md-8 py-5 border">
-                <h4 class="pb-4">Please fill with your details</h4>
-                <form action="/signup" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input name='Name' type="text" required autocomplete="off"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <input name="email" type="email"required autocomplete="off"/>
-                        </div>
-                      </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input id="PICT_Reg_ID" name="PICT_Reg_ID"  placeholder="PICT_Reg_ID" class="form-control" type="text">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <input type="Username" name='username' class="form-control" id="inputEmail4" placeholder="Username">
-                        </div>
-                      </div>
-                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input id="Password" name="password"placeholder="password" class="form-control" type="text">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <input name='Gender' type="Gender" class="form-control" id="gender" placeholder="Gender">
-                        </div>
-                      </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input id="Mobile No." name="Contact" placeholder="Mobile No." class="form-control" required="required" type="text">
-                        </div>
-                        <div class="form-group col-md-6">
-                                 <input type="role" name='role'  class="form-control" id="role" placeholder="Role">   
-                                 
-                        </div>
-                        <!--<div class="form-group col-md-12">
+          </div>
+          <div class="col-md-8 py-5 border">
+            <h4 class="pb-4">Please fill with your details</h4>
+            <form action="/signup" method="POST">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input
+                    id="Full Name"
+                    name="Name"
+                    placeholder="Name"
+                    class="form-control"
+                    type="text"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    class="form-control"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input
+                    id="PICT_Reg_ID"
+                    name="PICT_Reg_ID"
+                    placeholder="PICT_Reg_ID"
+                    class="form-control"
+                    type="text"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    type="Username"
+                    name="username"
+                    class="form-control"
+                    id="inputEmail4"
+                    placeholder="Username"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input
+                    id="Password"
+                    name="password"
+                    placeholder="password"
+                    class="form-control"
+                    type="password"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    name="Gender"
+                    type="Gender"
+                    class="form-control"
+                    id="gender"
+                    placeholder="Gender"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input
+                    id="Mobile No."
+                    name="Contact"
+                    placeholder="Mobile No."
+                    class="form-control"
+                    required="required"
+                    type="text"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <!-- <input
+                    type="role"
+                    name="role"
+                    class="form-control"
+                    id="role"
+                    placeholder="Role"
+                  /> -->
+                  <label for="cars">Choose a Role</label>
+                  <select id="role" name="role" class="form-control">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+                <!--<div class="form-group col-md-12">
                                   <textarea id="comment" name="comment" cols="40" rows="5" class="form-control"></textarea>
                         </div>-->
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="invalidCheck2"
+                        required
+                      />
+                      <label class="form-check-label" for="invalidCheck2">
+                        <small
+                          >By clicking Submit, you agree to our Terms &
+                          Conditions, Visitor Agreement and Privacy
+                          Policy.</small
+                        >
+                      </label>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <div class="form-group">
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                                  <label class="form-check-label" for="invalidCheck2">
-                                    <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
-                                  </label>
-                                </div>
-                              </div>
-                    
-                          </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <button type="submit" class="btn btn-danger">Submit</button>
-                    </div>
-                </form>
-            </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <button type="submit" class="btn btn-danger">Submit</button>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
-</section>
-  <!--<div class="form">
+      </div>
+    </section>
+    <!--<div class="form">
       
       <ul class="tab-group">
         <li class="tab active"><a href="#signup">Sign Up</a></li>
@@ -164,6 +231,5 @@
       </div>
       
 </div> -->
-      
-</body>
+  </body>
 </html>
